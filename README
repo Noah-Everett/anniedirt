@@ -1,0 +1,34 @@
+G4ANNIE 
+
+   g4annie_dirt_flux - propagate particle out of GENIE events throught
+                       geometry until they reach the surface of the tank water
+                       (or their origin if generated within the water)
+
+Getting Started (Geant 4.9.6 and later):
+
+  setup_nubase # used to get Geant4, GENIE and ROOT environments setup
+  
+  mkdir G4ANNIE-cmakebuild
+  cd G4ANNIE-cmakebuild
+
+  ## assuming $ROOTSYS and $XERCESCROOT are defined
+  ## as well as the env variables on the lines below
+  ## (adjust for different versions of Geant4 and CLHEP)
+
+  g4cmake=`ls -d ${GEANT4_FQ_DIR}/lib*/Geant4-*`
+  clhepcmake=`ls -d ${CLHEP_DIR}/${CLHEP_FQ}/lib/CLHEP-*`
+  export CCFORCE=""
+  if [ `uname -s` == "Darwin" ]; then
+    export CCFORCE="env CC=gcc CXX=g++ FC=gfortran"
+  fi
+
+  $CCFORCE cmake -DGeant4_DIR=${g4cmake} -DCLHEP_DIR=${clhepcmake} \
+        -DCLHEP_INC=${CLHEP_INC} -DXERCESCROOT=${XERCESCROOT} \
+        -DROOTSYS=${ROOTSYS} ../G4ANNIE
+
+  make
+  [... builds 'g4annie_dirt_flux' executable ...]
+
+Running the Executable:
+
+   ./g4annie_dirt_flux -b -i ../gntp.2.ghep.root --nevents 2

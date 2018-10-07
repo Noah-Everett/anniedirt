@@ -1,0 +1,30 @@
+<anniegpvm01.fnal.gov> ANNIEPATH=/annie/app/users/moflaher/anniedirt/bin
+<anniegpvm01.fnal.gov> source $ANNIEPATH/setup_annie.sh
+<anniegpvm01.fnal.gov> setup_annie
+-bash: /cvmfs/grid.cern.ch/util/cvmfs-uptodate: No such file or directory
+: CVMFS installation not available, try BlueArc
+source /grid/fermiapp/products/genie/externals/setup
+: using PRODUCTS=/grid/fermiapp/products/genie/externals:/grid/fermiapp/products/common/db:/grid/fermiapp/products/larsoft:/grid/fermiapp/products/common/db/:/grid/fermiapp/products/common/db/
+<anniegpvm01.fnal.gov> setup jobsub_client
+<anniegpvm01.fnal.gov> export GROUP=annie
+<anniegpvm01.fnal.gov> mkdir -p mkdir -p /pnfs/annie/persistent/users/${USER}/g4dirt
+<anniegpvm01.fnal.gov> export VOLCUT="-E 1100,500,500"
+<anniegpvm01.fnal.gov> export FIRSTRUN=2000
+<anniegpvm01.fnal.gov> export NEVENTS=10000
+<anniegpvm01.fnal.gov> export NJOBS=1000
+<anniegpvm01.fnal.gov> kinit moflaher
+<anniegpvm01.fnal.gov> jobsub_submit -g --group $GROUP -N ${NJOBS} file://$ANNIEPATH/run_annie_g4dirt.sh -r ${FIRSTRUN} -v -i /pnfs/annie/persistent/users/rhatcher/genie -o /pnfs/annie/persistent/users/${USER}/g4dirt
+
+/fife/local/scratch/uploads/annie/moflaher/2016-06-16_142305.291425_5642
+
+/fife/local/scratch/uploads/annie/moflaher/2016-06-16_142305.291425_5642/run_annie_g4dirt.sh_20160616_142306_219473_0_1_.cmd
+
+submitting....
+
+Submitting job(s)........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+
+1000 job(s) submitted to cluster 11238428.
+
+JobsubJobId of first job: 11238428.0@fifebatch2.fnal.gov
+
+Use job id 11238428.0@fifebatch2.fnal.gov to retrieve output

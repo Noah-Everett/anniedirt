@@ -1,0 +1,12 @@
+SRCDIR=`PWD`
+source setup_annie.sh
+setup_annie
+mkdir ../build
+cd ../build
+g4cmake=`ls -d ${GEANT4_FQ_DIR}/lib*/Geant4-*`
+clhepcmake=`ls -d ${CLHEP_DIR}/${CLHEP_FQ}/lib/CLHEP-*`
+export CCFORCE=""
+if [ `uname -s` == "Darwin" ]; then     export CCFORCE="env CC=gcc CXX=g++ FC=gfortran";   fi
+$CCFORCE cmake -DGeant4_DIR=${g4cmake} -DCLHEP_DIR=${clhepcmake} -DCLHEP_INC=${CLHEP_INC} 
+-DXERCESCROOT=${XERCESCROOT} -DROOTSYS=${ROOTSYS} SRCDIR
+make
