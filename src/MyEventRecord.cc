@@ -7,6 +7,8 @@
 
 #include <iomanip>
 
+using namespace CLHEP;
+
 MyEventRecord::MyEventRecord() 
 {
   run = entry = iter = niter = -1;

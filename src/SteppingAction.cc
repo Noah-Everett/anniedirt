@@ -44,8 +44,6 @@
 
 #include "MyEventRecord.hh"
 
-#include <string>
-
 ////#include "G4RunManager.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -95,10 +93,7 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
     G4LogicalVolume*   lv_end = pv_end->GetLogicalVolume();
     G4Material*       mat_end = lv_end->GetMaterial();
    
-   G4String volumename = pv_end->GetName();
-   G4bool insomethinginteresting = ((volumename.find("0x"))!=std::string::npos);
-   if(volumename=="TWATER_PV" || insomethinginteresting){
-//    if ( pv_end->GetName() == "TWATER_PV" ) {
+    if ( pv_end->GetName() == "TWATER_PV" ) {
       // record this info and kill the particle
       G4Track* aTrack = aStep->GetTrack();
       fMyEventRecord->AppendG4Step(aTrack,postStepPoint);

@@ -6,8 +6,8 @@
 #
 # WHICH_G4=`ls -d ${GEANT4_FQ_DIR}/lib64/Geant4-*`
 # WHICH_CLHEP=`ls -d ${CLHEP_LIB_DIR}/CLHEP-*`
-# 
-# cmake -DGeant4_DIR=${WHICH_G4} -DCLHEP_DIR=${WHICH_CLHEP}  
+#
+# cmake -DGeant4_DIR=${WHICH_G4} -DCLHEP_DIR=${WHICH_CLHEP}
 #    [ -DWITH_G4NU=ON ] ../G4ANNIE
 #
 #
@@ -36,7 +36,7 @@ else()
   find_package(Geant4 REQUIRED)
 endif()
 
-find_package(CLHEP REQUIRED)
+#find_package(CLHEP REQUIRED)
 
 #----------------------------------------------------------------------------
 # Setup Geant4 include directories and compile definitions
@@ -55,7 +55,6 @@ include_directories(${G4NUPL}/include)
 
 set(_root_internal_libraries
     Core
-    Cint
     RIO
     Net
     Hist
@@ -86,7 +85,7 @@ include_directories($ENV{GENIE}/src)
 link_directories($ENV{GENIE}/lib)
 
 set(_genie_internal_libraries
-    GAlgorithm GBaryonResonance GBase GBodekYang GCharm GCoh GDfrc GDIS GCrossSections GDecay GElas GElFF GHEP GEVGCore GEVGModules GEVGDrivers GGiBUU GHadronTransp GFragmentation GInteraction GLlewellynSmith GMEC GMessenger GNuGamma GNuE GNtuple GNuclear GNumerical GQPM GPDG GPDF GQEL GRES GRegistry GReinSeghal GUtils GGeo GFluxDrivers GVLE GMuELoss GReWeight GNucleonDecay
+    GAlgorithm GBaryonResonance GBase GBodekYang GCharm GCoh GDfrc GDIS GCrossSections GDecay GElas GElFF GHEP GEVGCore GEVGModules GEVGDrivers GGiBUU GHadronTransp GFragmentation GInteraction GLlewellynSmith GMEC GMessenger GNuGamma GNuE GNtuple GNuclear GNumerical GQPM GPDG GPDF GQEL GRES GRegistry GReinSehgal GUtils GGeo GFluxDrivers GVLE GMuELoss GReWeight GNucleonDecay
 )
 
 include_directories($ENV{LOG4CPP_FQ_DIR}/include)
@@ -157,5 +156,3 @@ add_custom_target(G4SA DEPENDS g4annie_dirt_flux)
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS g4annie_dirt_flux DESTINATION bin)
-
-

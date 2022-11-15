@@ -51,7 +51,7 @@ namespace N03 {
 
 PhysicsList::PhysicsList():  G4VUserPhysicsList()
 {
-  defaultCutValue = 1.0*mm;
+  defaultCutValue = 1.0*CLHEP::mm;
   SetVerboseLevel(1);
 }
 

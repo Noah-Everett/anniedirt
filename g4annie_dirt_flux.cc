@@ -11,11 +11,8 @@
 #include "Randomize.hh"
 
 #include "DetectorConstruction.hh"
-#ifdef WITH_G4NU
-  #include "G4NuPhysicsLists/G4PhysListFactory.hh"   // alternative version in "g4nu" namespace
-#else
-  #include "AltG4PhysListFactory.hh"   // alternative version in "alt" namespace
-#endif
+#include "G4PhysListFactoryAlt.hh"   // alternative version in "alt" namespace
+
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
 #include "EventAction.hh"
@@ -51,7 +48,7 @@ static int verbosity  = 0;
 static int batch_mode = 0;
 Long64_t nevents      = -1;
 Long64_t nrepeat      = 1;
-G4String gdmlname     = "src/annie_v04.gdml";	//v01->v04 as of 29-01-17
+G4String gdmlname     = "../../annie.gdml";
 G4String plname       = "FTFP_BERT_HP"; // want those neutrons!!!
 G4String infname      = "gntp.42.ghep.root";
 G4String outfname     = "annie_flux.root";
@@ -197,16 +194,13 @@ int main(int argc,char** argv)
   // Run time choice on physics list
   //
   //old:  PhysicsList* physics = new PhysicsList;
-#ifdef WITH_G4NU
-  g4nu::G4PhysListFactory* factory = new g4nu::G4PhysListFactory();
-#else
-  alt::G4PhysListFactory* factory = new alt::G4PhysListFactory();
-#endif
-  G4VModularPhysicsList* physics = factory->GetReferencePhysList(plname);
+  g4alt::G4PhysListFactory factory;
+
+  G4VModularPhysicsList* physics = factory.GetReferencePhysList(plname);
   if ( physics ) {
     runManager->SetUserInitialization(physics);
   } else {
-    factory->PrintAvailableLists();
+    factory.PrintAvailablePhysLists();
     exit(127);
   }
     
