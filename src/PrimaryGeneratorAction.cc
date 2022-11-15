@@ -179,9 +179,10 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   }
   */
 
-  if ( vtxvol == "TWATER_PV" ) {
+  G4bool insomethinginteresting = ((vtxvol.find("0x"))!=std::string::npos);
+  if ( vtxvol == "TWATER_PV" || insomethinginteresting ) {
     intank = 1;
-    G4cout << "=========> particles start in TWATER_PV entry " 
+    G4cout << "=========> particles start in " << vtxvol << " entry " 
            << fEntry << G4endl;
   }
   // other posssibilities ? ... tank wall, base, cone, airspace?

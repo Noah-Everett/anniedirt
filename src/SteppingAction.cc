@@ -93,7 +93,9 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
     G4LogicalVolume*   lv_end = pv_end->GetLogicalVolume();
     G4Material*       mat_end = lv_end->GetMaterial();
    
-    if ( pv_end->GetName() == "TWATER_PV" ) {
+    G4String volumename = pv_end->GetName();
+    G4bool insomethinginteresting = ((volumename.find("0x"))!=std::string::npos);
+    if(volumename=="TWATER_PV" || insomethinginteresting){
       // record this info and kill the particle
       G4Track* aTrack = aStep->GetTrack();
       fMyEventRecord->AppendG4Step(aTrack,postStepPoint);
