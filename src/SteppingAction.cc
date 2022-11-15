@@ -44,6 +44,8 @@
 
 #include "MyEventRecord.hh"
 
+#include <string>
+
 ////#include "G4RunManager.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
