@@ -85,7 +85,12 @@ include_directories($ENV{GENIE}/src)
 link_directories($ENV{GENIE}/lib)
 
 set(_genie_internal_libraries
-    GAlgorithm GBaryonResonance GBase GBodekYang GCharm GCoh GDfrc GDIS GCrossSections GDecay GElas GElFF GHEP GEVGCore GEVGModules GEVGDrivers GGiBUU GHadronTransp GFragmentation GInteraction GLlewellynSmith GMEC GMessenger GNuGamma GNuE GNtuple GNuclear GNumerical GQPM GPDG GPDF GQEL GRES GRegistry GReinSehgal GUtils GGeo GFluxDrivers GVLE GMuELoss GReWeight GNucleonDecay
+    GFwAlg GFwEG GFwGHEP GFwInt GFwMsg GFwNtp GFwNum GFwParDat GFwReg 
+    GFwUtl GPhAMNGEG GPhAMNGXS GPhChmXS GPhCmn GPhCohEG GPhCohXS GPhDISEG 
+    GPhDISXS GPhDcy GPhDeEx GPhDfrcEG GPhDfrcXS GPhGlwResEG GPhGlwResXS 
+    GPhHadTransp GPhHadnz GPhIBDEG GPhIBDXS GPhMEL GPhMNucEG GPhMNucXS 
+    GPhNuElEG GPhNuElXS GPhNuclSt GPhPDF GPhQELEG GPhQELXS GPhResEG GPhResXS 
+    GPhStrEG GPhStrXS GPhXSIg GTlFlx GTlGeo
 )
 
 include_directories($ENV{LOG4CPP_FQ_DIR}/include)
