@@ -85,7 +85,7 @@ include_directories($ENV{GENIE}/src)
 link_directories($ENV{GENIE}/lib)
 
 set(_genie_internal_libraries
-    GFwAlg GFwEG GFwGHEP GFwInt GFwMsg GFwNtp GFwNum GFwParDat GFwReg 
+    GFwAlg GFwEG GFwGHEP GFwInt GFwMsg GFwNtp GFwParDat GFwReg 
     GFwUtl GPhAMNGEG GPhAMNGXS GPhChmXS GPhCmn GPhCohEG GPhCohXS GPhDISEG 
     GPhDISXS GPhDcy GPhDeEx GPhDfrcEG GPhDfrcXS GPhGlwResEG GPhGlwResXS 
     GPhHadTransp GPhHadnz GPhIBDEG GPhIBDXS GPhMEL GPhMNucEG GPhMNucXS 
