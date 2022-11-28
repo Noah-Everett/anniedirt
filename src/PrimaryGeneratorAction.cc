@@ -17,8 +17,8 @@
 #include "Randomize.hh"
 
 // GENIE headers
-#include "GHEP/GHepParticle.h"
-#include "Ntuple/NtpMCTreeHeader.h"
+#include "Framework/GHEP/GHepParticle.h"
+#include "Framework/Ntuple/NtpMCTreeHeader.h"
 
 // ROOT headers
 
