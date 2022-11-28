@@ -81,54 +81,54 @@ link_directories($ENV{ROOTSYS}/lib)
 # GENIE stuff
 #
 
-include_directories($ENV{GENIE}/src)
-link_directories($ENV{GENIE}/lib)
+include_directories($ENV{GENIE_INSTALL}/include)
+link_directories($ENV{GENIE_INSTALL}/lib)
 
 set(_genie_internal_libraries
-    GFwAlg-3.0.6
-    GFwEG-3.0.6
-    GFwGHEP-3.0.6
-    GFwInt-3.0.6
-    GFwMsg-3.0.6
-    GFwNtp-3.0.6
-    GFwNum-3.0.6
-    GFwParDat-3.0.6
-    GFwReg-3.0.6
-    GFwUtl-3.0.6
-    GPhAMNGEG-3.0.6
-    GPhAMNGXS-3.0.6
-    GPhChmXS-3.0.6
-    GPhCmn-3.0.6
-    GPhCohEG-3.0.6
-    GPhCohXS-3.0.6
-    GPhDISEG-3.0.6
-    GPhDISXS-3.0.6
-    GPhDcy-3.0.6
-    GPhDeEx-3.0.6
-    GPhDfrcEG-3.0.6
-    GPhDfrcXS-3.0.6
-    GPhGlwResEG-3.0.6
-    GPhGlwResXS-3.0.6
-    GPhHadTransp-3.0.6
-    GPhHadnz-3.0.6
-    GPhIBDEG-3.0.6
-    GPhIBDXS-3.0.6
-    GPhMEL-3.0.6
-    GPhMNucEG-3.0.6
-    GPhMNucXS-3.0.6
-    GPhNuElEG-3.0.6
-    GPhNuElXS-3.0.6
-    GPhNuclSt-3.0.6
-    GPhPDF-3.0.6
-    GPhQELEG-3.0.6
-    GPhQELXS-3.0.6
-    GPhResEG-3.0.6
-    GPhResXS-3.0.6
-    GPhStrEG-3.0.6
-    GPhStrXS-3.0.6
-    GPhXSIg-3.0.6
-    GTlFlx-3.0.6
-    GTlGeo-3.0.6
+    GFwAl
+    GFwE
+    GFwGHE
+    GFwIn
+    GFwMs
+    GFwNt
+    GFwNu
+    GFwParDa
+    GFwRe
+    GFwUt
+    GPhAMNGE
+    GPhAMNGX
+    GPhChmX
+    GPhCm
+    GPhCohE
+    GPhCohX
+    GPhDISE
+    GPhDISX
+    GPhDc
+    GPhDeE
+    GPhDfrcE
+    GPhDfrcX
+    GPhGlwResE
+    GPhGlwResX
+    GPhHadTrans
+    GPhHadn
+    GPhIBDE
+    GPhIBDX
+    GPhME
+    GPhMNucE
+    GPhMNucX
+    GPhNuElE
+    GPhNuElX
+    GPhNuclS
+    GPhPD
+    GPhQELE
+    GPhQELX
+    GPhResE
+    GPhResX
+    GPhStrE
+    GPhStrX
+    GPhXSI
+    GTlFl
+    GTlGe
 )
 
 include_directories($ENV{LOG4CPP_FQ_DIR}/include)
