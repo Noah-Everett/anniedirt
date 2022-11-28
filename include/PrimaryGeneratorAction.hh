@@ -42,7 +42,7 @@
 
 #include "TFile.h"
 #include "TTree.h"
-#include "Ntuple/NtpMCEventRecord.h"
+#include "Framework/Ntuple/NtpMCEventRecord.h"
 
 class G4Event;
 class G4VUserDetectorConstruction;
