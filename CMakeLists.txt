@@ -141,7 +141,7 @@ link_directories($ENV{LIBXML2ROOT}/lib)
 
 set(_xerces_internal_libraries xerces-c xml2)
 
-set(Genie_LIBRARIES ${_genie_internal_libraries} ${_log4cpp_internal_libraries} ${_xerces_internal_libraries} )
+set(Genie_LIBRARIES ${_genie_internal_libraries} ${_log4cpp_internal_libraries} ${_xerces_internal_libraries} ${_root_internal_libraries})
 
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
