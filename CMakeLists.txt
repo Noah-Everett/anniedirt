@@ -133,7 +133,7 @@ set(_genie_internal_libraries
 
 link_directories("/usr/lib64")
 
-set(_gsl_internal_libraries libgsl)
+set(_gsl_internal_libraries gsl)
 
 include_directories($ENV{LOG4CPP_FQ_DIR}/include)
 link_directories($ENV{LOG4CPP_FQ_DIR}/lib)
