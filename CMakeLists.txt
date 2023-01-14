@@ -83,7 +83,7 @@ link_directories($ENV{ROOTSYS}/lib)
 
 include_directories($ENV{GENIE_INSTALL}/include/GENIE)
 link_directories($ENV{GENIE_INSTALL}/lib)
-include_directories("/usr/lib64")
+#include_directories("/usr/lib64")
 
 set(_genie_internal_libraries
     GFwAlg-3.0.6.so
@@ -92,7 +92,7 @@ set(_genie_internal_libraries
     GFwInt-3.0.6.so
     GFwMsg-3.0.6.so
     GFwNtp-3.0.6.so
-    GFwNum-3.0.6.so
+    #GFwNum-3.0.6.so
     GFwParDat-3.0.6.so
     GFwReg-3.0.6.so
     GFwUtl-3.0.6.so
