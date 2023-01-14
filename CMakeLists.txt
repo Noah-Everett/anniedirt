@@ -131,7 +131,7 @@ set(_genie_internal_libraries
     GTlGeo-3.0.6
 )
 
-include_directories("/usr/lib64")
+link_directories("/usr/lib64")
 
 set(_gsl_internal_libraries libgsl)
 
