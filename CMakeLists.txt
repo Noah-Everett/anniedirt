@@ -82,55 +82,58 @@ link_directories($ENV{ROOTSYS}/lib)
 #
 
 include_directories($ENV{GENIE_INSTALL}/include/GENIE)
-#link_directories($ENV{GENIE_INSTALL}/lib)
-#include_directories("/usr/lib64")
+link_directories($ENV{GENIE_INSTALL}/lib)
 
-#set(_genie_internal_libraries
-#    GFwAlg-3.0.6.so
-#    GFwEG-3.0.6.so
-#    GFwGHEP-3.0.6.so
-#    GFwInt-3.0.6.so
-#    GFwMsg-3.0.6.so
-#    GFwNtp-3.0.6.so
-#    #GFwNum-3.0.6.so
-#    GFwParDat-3.0.6.so
-#    GFwReg-3.0.6.so
-#    GFwUtl-3.0.6.so
-#    GPhAMNGEG-3.0.6.so
-#    GPhAMNGXS-3.0.6.so
-#    GPhChmXS-3.0.6.so
-#    GPhCmn-3.0.6.so
-#    GPhCohEG-3.0.6.so
-#    GPhCohXS-3.0.6.so
-#    GPhDISEG-3.0.6.so
-#    GPhDISXS-3.0.6.so
-#    GPhDcy-3.0.6.so
-#    GPhDeEx-3.0.6.so
-#    GPhDfrcEG-3.0.6.so
-#    GPhDfrcXS-3.0.6.so
-#    GPhGlwResEG-3.0.6.so
-#    GPhGlwResXS-3.0.6.so
-#    GPhHadTransp-3.0.6.so
-#    GPhHadnz-3.0.6.so
-#    GPhIBDEG-3.0.6.so
-#    GPhIBDXS-3.0.6.so
-#    GPhMEL-3.0.6.so
-#    GPhMNucEG-3.0.6.so
-#    GPhMNucXS-3.0.6.so
-#    GPhNuElEG-3.0.6.so
-#    GPhNuElXS-3.0.6.so
-#    GPhNuclSt-3.0.6.so
-#    GPhPDF-3.0.6.so
-#    GPhQELEG-3.0.6.so
-#    GPhQELXS-3.0.6.so
-#    GPhResEG-3.0.6.so
-#    GPhResXS-3.0.6.so
-#    GPhStrEG-3.0.6.so
-#    GPhStrXS-3.0.6.so
-#    GPhXSIg-3.0.6.so
-#    GTlFlx-3.0.6.so
-#    GTlGeo-3.0.6.so
-#)
+set(_genie_internal_libraries
+    GFwAlg-3.0.6
+    GFwEG-3.0.6
+    GFwGHEP-3.0.6
+    GFwInt-3.0.6
+    GFwMsg-3.0.6
+    GFwNtp-3.0.6
+    #GFwNum-3.0.6
+    GFwParDat-3.0.6
+    GFwReg-3.0.6
+    GFwUtl-3.0.6
+    GPhAMNGEG-3.0.6
+    GPhAMNGXS-3.0.6
+    GPhChmXS-3.0.6
+    GPhCmn-3.0.6
+    GPhCohEG-3.0.6
+    GPhCohXS-3.0.6
+    GPhDISEG-3.0.6
+    GPhDISXS-3.0.6
+    GPhDcy-3.0.6
+    GPhDeEx-3.0.6
+    GPhDfrcEG-3.0.6
+    GPhDfrcXS-3.0.6
+    GPhGlwResEG-3.0.6
+    GPhGlwResXS-3.0.6
+    GPhHadTransp-3.0.6
+    GPhHadnz-3.0.6
+    GPhIBDEG-3.0.6
+    GPhIBDXS-3.0.6
+    GPhMEL-3.0.6
+    GPhMNucEG-3.0.6
+    GPhMNucXS-3.0.6
+    GPhNuElEG-3.0.6
+    GPhNuElXS-3.0.6
+    GPhNuclSt-3.0.6
+    GPhPDF-3.0.6
+    GPhQELEG-3.0.6
+    GPhQELXS-3.0.6
+    GPhResEG-3.0.6
+    GPhResXS-3.0.6
+    GPhStrEG-3.0.6
+    GPhStrXS-3.0.6
+    GPhXSIg-3.0.6
+    GTlFlx-3.0.6
+    GTlGeo-3.0.6
+)
+
+include_directories("/usr/lib64")
+
+set(_gsl_internal_libraries libgsl)
 
 include_directories($ENV{LOG4CPP_FQ_DIR}/include)
 link_directories($ENV{LOG4CPP_FQ_DIR}/lib)
@@ -142,7 +145,7 @@ link_directories($ENV{LIBXML2ROOT}/lib)
 
 set(_xerces_internal_libraries xerces-c xml2)
 
-set(Genie_LIBRARIES ${_genie_internal_libraries} ${_log4cpp_internal_libraries} ${_xerces_internal_libraries} ${_root_internal_libraries})
+set(Genie_LIBRARIES ${_genie_internal_libraries} ${_log4cpp_internal_libraries} ${_xerces_internal_libraries} ${_root_internal_libraries} ${_gsl_internal_libraries})
 
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
@@ -164,7 +167,7 @@ endif()
 # Add the executable, and link it to the Geant4 libraries
 #
 add_executable(g4annie_dirt_flux g4annie_dirt_flux.cc ${sources} ${headers})
-target_link_libraries(g4annie_dirt_flux ${Geant4_LIBRARIES} ${Root_LIBRARIES} ${G4NU_LIBRARIES})#${Genie_LIBRARIES}
+target_link_libraries(g4annie_dirt_flux ${Genie_LIBRARIES} ${Geant4_LIBRARIES} ${Root_LIBRARIES} ${G4NU_LIBRARIES})
 
 if(WITH_G4NU)
   SET_TARGET_PROPERTIES(g4annie_dirt_flux PROPERTIES COMPILE_FLAGS -DWITH_G4NU )
