@@ -91,7 +91,7 @@ set(_genie_internal_libraries
     GFwInt-3.0.6
     GFwMsg-3.0.6
     GFwNtp-3.0.6
-    #GFwNum-3.0.6
+    GFwNum-3.0.6
     GFwParDat-3.0.6
     GFwReg-3.0.6
     GFwUtl-3.0.6
