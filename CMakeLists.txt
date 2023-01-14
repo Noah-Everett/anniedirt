@@ -140,7 +140,7 @@ link_directories($ENV{LOG4CPP_FQ_DIR}/lib)
 
 set(_log4cpp_internal_libraries log4cpp)
 
-link_directories($ENV{XERCESCROOT}/lib)
+link_directories($ENV{XERCESCROOT}/lib64)
 link_directories($ENV{LIBXML2ROOT}/lib)
 
 set(_xerces_internal_libraries xerces-c xml2)
