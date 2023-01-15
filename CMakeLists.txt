@@ -132,18 +132,16 @@ set(_genie_internal_libraries
 )
 
 link_directories("/usr/lib64")
-
 set(_gsl_internal_libraries gsl gslcblas)
 
 include_directories($ENV{LOG4CPP_FQ_DIR}/include)
 link_directories($ENV{LOG4CPP_FQ_DIR}/lib)
-
 set(_log4cpp_internal_libraries log4cpp)
 
 link_directories($ENV{XERCESCROOT}/lib64)
-link_directories($ENV{LIBXML2ROOT}/lib)
-
 set(_xerces_internal_libraries xerces-c xml2)
+
+link_directories($ENV{LIBXML2ROOT}/lib)
 
 set(Genie_LIBRARIES ${_genie_internal_libraries} ${_log4cpp_internal_libraries} ${_xerces_internal_libraries} ${_root_internal_libraries} ${_gsl_internal_libraries})
 
@@ -170,7 +168,7 @@ add_executable(g4annie_dirt_flux g4annie_dirt_flux.cc ${sources} ${headers})
 target_link_libraries(g4annie_dirt_flux ${Genie_LIBRARIES} ${Geant4_LIBRARIES} ${Root_LIBRARIES} ${G4NU_LIBRARIES})
 
 if(WITH_G4NU)
-  SET_TARGET_PROPERTIES(g4annie_dirt_flux PROPERTIES COMPILE_FLAGS -DWITH_G4NU )
+  SET_TARGET_PROPERTIES(g4annie_dirt_flux PROPERTIES COMPILE_FLAGS -DWITH_G4NU)
 endif()
 
 #----------------------------------------------------------------------------
