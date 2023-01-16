@@ -58,19 +58,26 @@ for INFILE in ${INDIR}/gntp.${RUNNUM}.ghep.root; do
     export OUTFILELOG=annie_tank_flux.${CURRUNNUM}.log
 
 cat <<EOF > ${OUTFILELOG}
+#============================================#
 #=============== RUN SETTINGS ===============#
+#============================================#
   GENIE file (in dir): ${INFILE}
 g4dirt file (out dir): ${OUTFILE}
       g4dirt file log: annie_tank_flux.${CURRUNNUM}.log
              commmand: $B/g4annie_dirt_flux --batch -n ${NEVENTS} -g ${GEOMETRY} --physics=${USEPHYLIST} -i ${INFILE} -o $(basename ${OUTFILE})
+
+
+#======================================#
+#=============== OUTPUT ===============#
+#======================================#
 EOF
 
 # I know the `-i ./$basename ${INFILE})` looks really dumb, but its necessary... I learned the hard way
 /ANNIEDirt_install/bin/g4annie_dirt_flux --batch -n ${NEVENTS} -g ${GEOMETRY} --physics=${USEPHYLIST} -i ./$(basename ${INFILE}) -o $(basename ${OUTFILE}) 2>&1 | tee -a ${OUTFILELOG}
 
 mv annie_tank_flux.* ${OUTDIR}
-rm currentEvent.rndm
-rm currentRun.rndm
+rm -f currentEvent.rndm
+rm -f currentRun.rndm
   fi
 done
 
