@@ -1,18 +1,18 @@
-###########################################################
-##################### Dockerfile Info #####################
-###########################################################
-###                                                     ###
-### ANNIEDirt (other names include g4dirt and g4annie)  ###
-###                                                     ###
-### Created by Noah Everett                             ###
-###     noah.everett@mines.sdsmt.edu                    ###
-###                                                     ###
-### Dockerfile is based on GENIE Dockerfile created     ###
-### by James Minock which was based on ToolAnalysis     ###
-### Dockerfile created by Dr. Benjamin Richards.        ###
-###                                                     ###
-###########################################################
-###########################################################
+#############################################################
+###################### Dockerfile Info ######################
+#############################################################
+###                                                       ###
+### ANNIEDirt (g4dirt, g4annie, g4annie_dirt_flux, etc.)  ###
+###                                                       ###
+### Created by Noah Everett                               ###
+###     noah.everett@mines.sdsmt.edu                      ###
+###                                                       ###
+### Dockerfile is based on GENIE Dockerfile created       ###
+### by James Minock which was based on ToolAnalysis       ###
+### Dockerfile created by Dr. Benjamin Richards.          ###
+###                                                       ###
+#############################################################
+#############################################################
 
 
 
@@ -159,7 +159,7 @@ RUN source /setup_Dockerfile.sh \
  && mkdir /Geant4_build \
  && mkdir /Geant4_install \
  && cd /Geant4_build \
- && cmake ../Geant4_src -DCMAKE_INSTALL_PREFIX=../Geant4_install  \
+ && cmake /Geant4_src -DCMAKE_INSTALL_PREFIX=/Geant4_install \
                         -DCMAKE_PREFIX_PATH=/Xerces-C_install \
                         -DCMAKE_CXX_STANDARD=14 \
                         -DGEANT4_USE_GDML=ON \
@@ -167,10 +167,9 @@ RUN source /setup_Dockerfile.sh \
                         -DGEANT4_INSTALL_DATA=ON \
  && make -j${NCPU} \
  && make install \
- && source /Geant4_install/bin/geant4.sh \
  && cd / \
- && rm -rf Geant4_src \
- && rm -rf Geant4_build \
+ && rm -rf /Geant4_src \
+ && rm -rf /Geant4_build \
 
 
 
@@ -179,7 +178,7 @@ RUN source /setup_Dockerfile.sh \
 ###########################
 RUN source /setup_Dockerfile.sh \
  && git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/GENIE-Generator /GENIE \
- && cd GENIE \
+ && cd /GENIE \
  && ./configure --prefix=/GENIE_install \
                 --with-libxml2-inc=/usr/include/libxml2 \
                 --with-libxml2-lib=/usr/lib64 \
