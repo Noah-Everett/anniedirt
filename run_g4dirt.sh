@@ -8,6 +8,7 @@ export RWHNODE=0
 export RUNNUM=""  # starting run number
 export BATCH=""
 source /Geant4_install/bin/geant4.sh
+source /setup_Dockerfile.sh
 
 for i in "$@"; do
   case $i in

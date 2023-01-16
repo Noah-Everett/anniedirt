@@ -196,10 +196,11 @@ RUN source /setup_Dockerfile.sh \
 ###############################
 ########## ANNIEDirt ##########
 ###############################
-RUN source /setup_Dockerfile.sh \
+RUN wget https://raw.githubusercontent.com/Noah-Everett/anniedirt/Docker/setup_Dockerfile.sh \
+ && source /setup_Dockerfile.sh \
  && git clone --depth 1 --branch Docker https://github.com/Noah-Everett/anniedirt /ANNIEDirt_src \
- && mkdir ANNIEDirt_build \
- && mkdir ANNIEDirt_install \
+ && mkdir /ANNIEDirt_build \
+ && mkdir /ANNIEDirt_install \
  && cd /ANNIEDirt_build \
  && cmake /ANNIEDirt_src -DCMAKE_INSTALL_PREFIX=/ANNIEDirt_install \
                          -DCMAKE_CXX_STANDARD=14 \
