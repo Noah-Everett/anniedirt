@@ -49,14 +49,16 @@ RUN dnf config-manager --set-enabled extras,powertools \
  && yum install -y libnsl2-devel \
  && yum clean all \
  && rm -rf /vr/cache/yum \
- && export NCPU="10"
+ && export NCPU="10" \
+ && wget https://raw.githubusercontent.com/Noah-Everett/anniedirt/Docker/setup_Dockerfile.sh \
 
 
 
 #############################
 ########## log4cpp ##########
 #############################
-RUN git clone --depth 1 --branch v2.9.1 https://github.com/orocos-toolchain/log4cpp /log4cpp_src \
+RUN source /setup_Dockerfile.sh \
+ && git clone --depth 1 --branch v2.9.1 https://github.com/orocos-toolchain/log4cpp /log4cpp_src \
  && mkdir /log4cpp_build \
  && mkdir /log4cpp_install \
  && cd /log4cpp_build \
@@ -73,7 +75,8 @@ RUN git clone --depth 1 --branch v2.9.1 https://github.com/orocos-toolchain/log4
 ############################
 ########## fsplit ##########
 ############################
-RUN mkdir /fsplit \
+RUN source /setup_Dockerfile.sh \
+ && mkdir /fsplit \
  && cd /fsplit \
  && wget https://gist.githubusercontent.com/marc1uk/c0e32d955dd1c06ef69d80ce643018ad/raw/10e592d42737ecc7dca677e774ae66dcb5a3859d/fsplit.c \
  && gcc fsplit.c -o fsplit \
@@ -84,7 +87,8 @@ RUN mkdir /fsplit \
 #############################
 ########## Pythia6 ##########
 #############################
-RUN git clone --depth 1 https://github.com/GENIE-MC-Community/Pythia6Support.git /Pythia6 \
+RUN source /setup_Dockerfile.sh \
+ && git clone --depth 1 https://github.com/GENIE-MC-Community/Pythia6Support.git /Pythia6 \
  && cd /Pythia6 \
  && ./build_pythia6.sh --dummies=keep \
  && cd /
@@ -94,7 +98,8 @@ RUN git clone --depth 1 https://github.com/GENIE-MC-Community/Pythia6Support.git
 ###########################
 ########## Expat ##########
 ###########################
-RUN git clone --depth 1 --branch R_2_5_0 https://github.com/libexpat/libexpat /Expat_src \
+RUN source /setup_Dockerfile.sh \
+ && git clone --depth 1 --branch R_2_5_0 https://github.com/libexpat/libexpat /Expat_src \
  && mkdir /Expat_build \
  && mkdir /Expat_install \
  && cd /Expat_build \
@@ -110,7 +115,8 @@ RUN git clone --depth 1 --branch R_2_5_0 https://github.com/libexpat/libexpat /E
 ##############################
 ########## Xerces-C ##########
 ##############################
-RUN git clone --depth 1 --branch v3.2.4 https://github.com/apache/xerces-c /Xerces-C_src \
+RUN source /setup_Dockerfile.sh \
+ && git clone --depth 1 --branch v3.2.4 https://github.com/apache/xerces-c /Xerces-C_src \
  && mkdir /Xerces-C_build \
  && mkdir /Xerces-C_install \
  && cd /Xerces-C_build \
@@ -126,7 +132,8 @@ RUN git clone --depth 1 --branch v3.2.4 https://github.com/apache/xerces-c /Xerc
 ##########################
 ########## ROOT ##########
 ##########################
-RUN git clone --depth 1 --branch v6-26-10 https://github.com/root-project/root /ROOT_src \
+RUN source /setup_Dockerfile.sh \
+ && git clone --depth 1 --branch v6-26-10 https://github.com/root-project/root /ROOT_src \
  && mkdir /ROOT_build \
  && mkdir /ROOT_install \
  && cd /ROOT_build \
@@ -148,7 +155,8 @@ RUN git clone --depth 1 --branch v6-26-10 https://github.com/root-project/root /
 ############################
 ########## Geant4 ##########
 ############################
-RUN git clone --depth 1 --branch v10.7.2 https://github.com/Geant4/geant4 /Geant4_src \
+RUN source /setup_Dockerfile.sh \
+ && git clone --depth 1 --branch v10.7.2 https://github.com/Geant4/geant4 /Geant4_src \
  && mkdir /Geant4_build \
  && mkdir /Geant4_install \
  && cd /Geant4_build \
@@ -170,7 +178,8 @@ RUN git clone --depth 1 --branch v10.7.2 https://github.com/Geant4/geant4 /Geant
 ###########################
 ########## GENIE ##########
 ###########################
-RUN git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/GENIE-Generator /GENIE \
+RUN source /setup_Dockerfile.sh \
+ && git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/GENIE-Generator /GENIE \
  && cd GENIE \
  && ./configure --prefix=/GENIE_install \
                 --with-libxml2-inc=/usr/include/libxml2 \
@@ -188,7 +197,8 @@ RUN git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/
 ###############################
 ########## ANNIEDirt ##########
 ###############################
-RUN git clone --depth 1 --branch Docker https://github.com/Noah-Everett/anniedirt /ANNIEDirt_src \
+RUN source /setup_Dockerfile.sh \
+ && git clone --depth 1 --branch Docker https://github.com/Noah-Everett/anniedirt /ANNIEDirt_src \
  && mkdir ANNIEDirt_build \
  && mkdir ANNIEDirt_install \
  && cd /ANNIEDirt_build \
