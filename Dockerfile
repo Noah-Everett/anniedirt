@@ -49,7 +49,6 @@ RUN dnf config-manager --set-enabled extras,powertools \
                    libnsl2-devel \
  && yum clean all \
  && rm -rf /vr/cache/yum \
- && export NCPU="10" \
  && wget https://raw.githubusercontent.com/Noah-Everett/anniedirt/Docker/setup_Dockerfile.sh
 
 
