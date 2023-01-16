@@ -183,10 +183,9 @@ ENV LD_LIBRARY_PATH="/Geant4_install/lib64:${LD_LIBRARY_PATH}"
 RUN yum install -y quota
 RUN yum install -y patch
 RUN yum install -y libnsl2-devel
-RUN git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/GENIE-Generator GENIE_src
-RUN mkdir /GENIE_install
-WORKDIR GENIE_src
-ENV GENIE="/GENIE_src"
+RUN git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/GENIE-Generator GENIE
+WORKDIR GENIE
+ENV GENIE="/GENIE"
 RUN ./configure --prefix=/GENIE_install \
                 --with-libxml2-inc=/usr/include/libxml2 \
                 --with-libxml2-lib=/usr/lib64 \
@@ -196,22 +195,15 @@ RUN ./configure --prefix=/GENIE_install \
                 --enable-fnal \
                 --disable-lhapdf5
 RUN make -j${NCPU}
-#RUN make install
 WORKDIR /
-#RUN mv /GENIE_src/VERSION /GENIE_install
-#RUN mv /GENIE_src/config /GENIE_install
-#RUN rm -rf GENIE_src
-#ENV GENIE_INSTALL="/GENIE_install"
-ENV GENIE_INSTALL="/GENIE_src"
-#ENV GENIE="/GENIE_install"
-ENV LD_LIBRARY_PATH="/GENIE_install/lib:${LD_LIBRARY_PATH}"
+ENV GENIE_INSTALL="/GENIE"
+ENV LD_LIBRARY_PATH="/GENIE/lib:${LD_LIBRARY_PATH}"
 
 
 
 ###############################
 ########## ANNIEDirt ##########
 ###############################
-RUN echo "yes"
 RUN git clone --depth 1 --branch Docker https://github.com/Noah-Everett/anniedirt ANNIEDirt_src
 RUN mkdir ANNIEDirt_build
 RUN mkdir ANNIEDirt_install
