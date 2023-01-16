@@ -66,21 +66,18 @@ RUN git clone --depth 1 --branch v2.9.1 https://github.com/orocos-toolchain/log4
  && cp /log4cpp_install/lib/liborocos-log4cpp.so /log4cpp_install/lib/liblog4cpp.so \
  && cd / \
  && rm -rf /log4cpp_src \
- && rm -rf /log4cpp_build \
- && export LOG4CPP_FQ_DIR="/log4cpp_install" \
- && export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/log4cpp_install/lib"
+ && rm -rf /log4cpp_build
 
 
 
 ############################
 ########## fsplit ##########
 ############################
-RUN mkdir fsplit \
- && cd fsplit \
+RUN mkdir /fsplit \
+ && cd /fsplit \
  && wget https://gist.githubusercontent.com/marc1uk/c0e32d955dd1c06ef69d80ce643018ad/raw/10e592d42737ecc7dca677e774ae66dcb5a3859d/fsplit.c \
  && gcc fsplit.c -o fsplit \
- && cd / \
- && export PATH="/fsplit/:${PATH}"	
+ && cd /
 
 
 
@@ -90,11 +87,7 @@ RUN mkdir fsplit \
 RUN git clone --depth 1 https://github.com/GENIE-MC-Community/Pythia6Support.git /Pythia6 \
  && cd /Pythia6 \
  && ./build_pythia6.sh --dummies=keep \
- && cd / \
- && export PYTHIA6_DIR="/Pythia6/v6_424/" \
- && export PYTHIA6_INCLUDE_DIR="/Pythia6/v6_424/inc/" \
- && export PYTHIA6_LIBRARY="/Pythia6/v6_424/lib/" \
- && export LD_LIBRARY_PATH="/Pythia6/v6_424/lib:${LD_LIBRARY_PATH}"
+ && cd /
 
 
 
@@ -126,9 +119,7 @@ RUN git clone --depth 1 --branch v3.2.4 https://github.com/apache/xerces-c /Xerc
  && make install \
  && cd / \
  && rm -rf /Xerces-C_src \
- && rm -rf /Xerces-C_build \
- && export XERCESCROOT="/Xerces-C_install" \
- && export LD_LIBRARY_PATH="/Xerces-C_install/lib64:${LD_LIBRARY_PATH}"
+ && rm -rf /Xerces-C_build
 
 
 
@@ -150,10 +141,7 @@ RUN git clone --depth 1 --branch v6-26-10 https://github.com/root-project/root /
  && make install \
  && cd / \
  && rm -rf /ROOT_src \
- && rm -rf /ROOT_build \
- && export ROOTSYS="/ROOT_install" \
- && export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/ROOT_install/lib" \
- && export PATH="${PATH}:/ROOT_install/bin"	
+ && rm -rf /ROOT_build
 
 
 
@@ -176,7 +164,6 @@ RUN git clone --depth 1 --branch v10.7.2 https://github.com/Geant4/geant4 /Geant
  && cd / \
  && rm -rf Geant4_src \
  && rm -rf Geant4_build \
- && export LD_LIBRARY_PATH="/Geant4_install/lib64:${LD_LIBRARY_PATH}"
 
 
 
@@ -185,7 +172,6 @@ RUN git clone --depth 1 --branch v10.7.2 https://github.com/Geant4/geant4 /Geant
 ###########################
 RUN git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/GENIE-Generator /GENIE \
  && cd GENIE \
- && export GENIE="/GENIE" \
  && ./configure --prefix=/GENIE_install \
                 --with-libxml2-inc=/usr/include/libxml2 \
                 --with-libxml2-lib=/usr/lib64 \
@@ -195,9 +181,7 @@ RUN git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/
                 --enable-fnal \
                 --disable-lhapdf5 \
  && make -j${NCPU} \
- && cd / \
- && GENIE_INSTALL="/GENIE" \
- && LD_LIBRARY_PATH="/GENIE/lib:${LD_LIBRARY_PATH}"
+ && cd /
 
 
 
