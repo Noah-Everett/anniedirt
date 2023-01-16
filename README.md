@@ -3,9 +3,9 @@
 ## About
 ANNIEDirt (g4annie_dirt_flux, g4dirt, g4annie, etc.) is part of ANNIE's simulation chain. It propigates final state particles from [GENIE](https://github.com/ANNIEsoft/GENIE-v3) until they are inside ANNIE's tank volume (or anyother specified volumes). This can drastically reduce run time when studing neutrino events outside the ANNIE tank.
 
-## `g4annie_dirt_flux` Usage
+## `/home/g4annie_dirt_flux` Usage
 ```
-/home/g4annie_dirt_flux -h | --help           print usage statment
+g4annie_dirt_flux -h | --help           print usage statment
                         -b | --batch          run in batch mode
                         -v | --verbose        increase verbosity
                         -n | --nevents        limit # of events
@@ -16,9 +16,9 @@ ANNIEDirt (g4annie_dirt_flux, g4dirt, g4annie, etc.) is part of ANNIE's simulati
                         -o | --output=OFILE   output file
 ```
 
-## `run_g4dirt.sh` Usage
+## `/home/run_g4dirt.sh` Usage
 ```
-/home/run_g4dirt.sh -r=<run number (or numbers using `*`. Ex: \`-r='4*'\`)>
+run_g4dirt.sh -r=<run number (or numbers using `*`. Ex: \`-r='4*'\`)>
                     -i=</path/to/input/GENIE/files/dir>
                     -n=<number of events per GENIE file to propigate>
                     -g=</path/to/geometry/file.gdml>

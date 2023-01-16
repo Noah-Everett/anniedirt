@@ -195,16 +195,15 @@ RUN ./configure --prefix=/GENIE_install \
                 --with-log4cpp-lib=/log4cpp_install/lib \
                 --enable-fnal \
                 --disable-lhapdf5
-                #--disable-dylibversion \
 RUN make -j${NCPU}
-RUN make install
+#RUN make install
 WORKDIR /
-RUN mv /GENIE_src/VERSION /GENIE_install
-RUN mv /GENIE_src/config /GENIE_install
-RUN rm -rf GENIE_src
-ENV GENIE_INSTALL="/GENIE_install"
-#ENV GENIE_INSTALL="/GENIE_src"
-ENV GENIE="/GENIE_install"
+#RUN mv /GENIE_src/VERSION /GENIE_install
+#RUN mv /GENIE_src/config /GENIE_install
+#RUN rm -rf GENIE_src
+#ENV GENIE_INSTALL="/GENIE_install"
+ENV GENIE_INSTALL="/GENIE_src"
+#ENV GENIE="/GENIE_install"
 ENV LD_LIBRARY_PATH="/GENIE_install/lib:${LD_LIBRARY_PATH}"
 
 
@@ -212,7 +211,6 @@ ENV LD_LIBRARY_PATH="/GENIE_install/lib:${LD_LIBRARY_PATH}"
 ###############################
 ########## ANNIEDirt ##########
 ###############################
-RUN echo "yesssssss"
 RUN git clone --depth 1 --branch Docker https://github.com/Noah-Everett/anniedirt ANNIEDirt_src
 RUN mkdir ANNIEDirt_build
 RUN mkdir ANNIEDirt_install

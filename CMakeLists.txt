@@ -81,7 +81,8 @@ link_directories($ENV{ROOTSYS}/lib)
 # GENIE stuff
 #
 
-include_directories($ENV{GENIE_INSTALL}/include/GENIE)
+#include_directories($ENV{GENIE_INSTALL}/include/GENIE)
+include_directories($ENV{GENIE_INSTALL}/include)
 link_directories($ENV{GENIE_INSTALL}/lib)
 
 set(_genie_internal_libraries
