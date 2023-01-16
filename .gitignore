@@ -20,3 +20,6 @@
 # ROOT dictionary build products
 *_rdict.pcm
 *RootDict.cxx
+
+# Mac *facepalm*
+*.DS_Store

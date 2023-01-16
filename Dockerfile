@@ -35,22 +35,22 @@ USER root
 #######################################
 RUN dnf config-manager --set-enabled extras,powertools \
  && yum install -y gcc \
- && yum install -y gcc-c++ \
- && yum install -y gcc-gfortran \
- && yum install -y cmake \
- && yum install -y make \
- && yum install -y git \
- && yum install -y wget \
- && yum install -y python27 \
- && yum install -y libxml2-devel \
- && yum install -y gsl-devel \
- && yum install -y quota \
- && yum install -y patch \
- && yum install -y libnsl2-devel \
+                   gcc-c++ \
+                   gcc-gfortran \
+                   cmake \
+                   make \
+                   git \
+                   wget \
+                   python27 \
+                   libxml2-devel \
+                   gsl-devel \
+                   quota \
+                   patch \
+                   libnsl2-devel \
  && yum clean all \
  && rm -rf /vr/cache/yum \
  && export NCPU="10" \
- && wget https://raw.githubusercontent.com/Noah-Everett/anniedirt/Docker/setup_Dockerfile.sh \
+ && wget https://raw.githubusercontent.com/Noah-Everett/anniedirt/Docker/setup_Dockerfile.sh
 
 
 
