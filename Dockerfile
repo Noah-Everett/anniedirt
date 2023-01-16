@@ -211,6 +211,7 @@ ENV LD_LIBRARY_PATH="/GENIE_install/lib:${LD_LIBRARY_PATH}"
 ###############################
 ########## ANNIEDirt ##########
 ###############################
+RUN echo "yes"
 RUN git clone --depth 1 --branch Docker https://github.com/Noah-Everett/anniedirt ANNIEDirt_src
 RUN mkdir ANNIEDirt_build
 RUN mkdir ANNIEDirt_install
