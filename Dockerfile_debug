@@ -212,9 +212,7 @@ RUN cmake ../ANNIEDirt_src -DCMAKE_INSTALL_PREFIX=/ANNIEDirt_install \
                            -DCMAKE_CXX_STANDARD=14
 RUN make -j${NCPU}
 RUN make install
-#RUN cp /ANNIEDirt_src/run_g4dirt.sh /ANNIEDirt_install
 RUN cp /ANNIEDirt_src/run_g4dirt.sh /home
-#RUN cp /ANNIEDirt_src/annie_v04.gdml /ANNIEDirt_install
 RUN cp /ANNIEDirt_src/annie_v04.gdml /home
 RUN cp /ANNIEDirt_install/bin/g4annie_dirt_flux /home
 WORKDIR /
