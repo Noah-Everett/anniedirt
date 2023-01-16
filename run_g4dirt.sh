@@ -7,6 +7,7 @@ export VERBOSE=0
 export RWHNODE=0
 export RUNNUM=""  # starting run number
 export BATCH=""
+source /Geant4_install/bin/geant4.sh
 
 for i in "$@"; do
   case $i in
@@ -75,7 +76,7 @@ EOF
 # I know the `-i ./$basename ${INFILE})` looks really dumb, but its necessary... I learned the hard way
 /ANNIEDirt_install/bin/g4annie_dirt_flux --batch -n ${NEVENTS} -g ${GEOMETRY} --physics=${USEPHYLIST} -i ./$(basename ${INFILE}) -o $(basename ${OUTFILE}) 2>&1 | tee -a ${OUTFILELOG}
 
-mv annie_tank_flux.* ${OUTDIR}
+mv -f annie_tank_flux.* ${OUTDIR}
 rm -f currentEvent.rndm
 rm -f currentRun.rndm
   fi
@@ -86,7 +87,7 @@ cd -
 
 usage() {
 cat >&2 <<EOF
-run_g4dirt.sh -r=<run number (or numbers using `*`. Ex: \`-r='4*'\`)>
+run_g4dirt.sh -r=<run number (or numbers using \`*\`. Ex: \`-r='4*'\`)>
               -i=</path/to/input/GENIE/files/dir>
               -n=<number of events per GENIE file to propigate>
               -g=</path/to/geometry/file.gdml>
