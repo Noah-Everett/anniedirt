@@ -30,14 +30,14 @@ run_g4dirt.sh -r=<run number (or numbers using `*`. Ex: \`-r='4*'\`)>
 ```
 
 ## `/home/run_g4dirt.sh` Example Usage
-`home $ ./run_g4dirt.sh -r=0 -i=/input -n=10 -g=/home/annie_v04.gdml -o=/output`
+`home $ source ./run_g4dirt.sh -r=0 -i=/input -n=10 -g=/home/annie_v04.gdml -o=/output`
 - Will use run number 0. Aka, will use `/input/gntp.0.ghep.root`
 - Input director is `/input`
 - Will run first 10 events in `/input/gntp.0.ghep.root`
 - Will propagate final state GENIE particles through `/home/annie_v04.gdml`
 - Output files, including `.log` and `.root` files will be saved to `/output`
 
-`home $ ./run_g4dirt.sh -r='*' -i=/input -n='-1' -g=/home/annie_v04.gdml -o=/output`
+`home $ source ./run_g4dirt.sh -r='*' -i=/input -n='-1' -g=/home/annie_v04.gdml -o=/output`
 - Will use all run numbers. Aka, will use `/input/gntp.*.ghep.root`
 - Input director is `/input`
 - Will run all events in `/input/gntp.*.ghep.root`
