@@ -49,7 +49,7 @@ RUN dnf config-manager --set-enabled extras,powertools \
                    libnsl2-devel \
  && yum clean all \
  && rm -rf /vr/cache/yum \
- && wget https://raw.githubusercontent.com/Noah-Everett/anniedirt/Docker/setup_Dockerfile.sh
+ && wget https://raw.githubusercontent.com/ANNIEsoft/anniedirt/genie_3_0_6/setup_Dockerfile.sh
 
 
 
@@ -177,7 +177,7 @@ RUN source /setup_Dockerfile.sh \
 ########## GENIE ##########
 ###########################
 RUN source /setup_Dockerfile.sh \
- && git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/GENIE-Generator /GENIE \
+ && git clone --depth 1 https://github.com/ANNIEsoft/GENIE-v3 /GENIE \
  && cd /GENIE \
  && ./configure --prefix=/GENIE_install \
                 --with-libxml2-inc=/usr/include/libxml2 \
@@ -195,9 +195,9 @@ RUN source /setup_Dockerfile.sh \
 ###############################
 ########## ANNIEDirt ##########
 ###############################
-RUN wget https://raw.githubusercontent.com/Noah-Everett/anniedirt/Docker/setup_Dockerfile.sh \
+RUN wget https://raw.githubusercontent.com/ANNIEsoft/anniedirt/genie_3_0_6/setup_Dockerfile.sh \
  && source /setup_Dockerfile.sh \
- && git clone --depth 1 --branch Docker https://github.com/Noah-Everett/anniedirt /ANNIEDirt_src \
+ && git clone --depth 1 https://github.com/ANNIEsoft/anniedirt /ANNIEDirt_src \
  && mkdir /ANNIEDirt_build \
  && mkdir /ANNIEDirt_install \
  && cd /ANNIEDirt_build \

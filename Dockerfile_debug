@@ -183,7 +183,7 @@ ENV LD_LIBRARY_PATH="/Geant4_install/lib64:${LD_LIBRARY_PATH}"
 RUN yum install -y quota
 RUN yum install -y patch
 RUN yum install -y libnsl2-devel
-RUN git clone --depth 1 --branch Develop/MacARM https://github.com/Noah-Everett/GENIE-Generator GENIE
+RUN git clone --depth 1 https://github.com/ANNIEsoft/GENIE-v3 GENIE
 WORKDIR GENIE
 ENV GENIE="/GENIE"
 RUN ./configure --prefix=/GENIE_install \
@@ -204,10 +204,11 @@ ENV LD_LIBRARY_PATH="/GENIE/lib:${LD_LIBRARY_PATH}"
 ###############################
 ########## ANNIEDirt ##########
 ###############################
-RUN git clone --depth 1 --branch Docker https://github.com/Noah-Everett/anniedirt ANNIEDirt_src
+RUN git clone --depth 1 --branch Docker https://github.com/ANNIEsoft/anniedirt ANNIEDirt_src
 RUN mkdir ANNIEDirt_build
 RUN mkdir ANNIEDirt_install
 WORKDIR ANNIEDirt_build
+RUN ls /GENIE/lib
 RUN cmake ../ANNIEDirt_src -DCMAKE_INSTALL_PREFIX=/ANNIEDirt_install \
                            -DCMAKE_CXX_STANDARD=14
 RUN make -j${NCPU}
