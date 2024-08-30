@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 # misc
-export NCPU=28
+export NCPU=1
 
 # log4cpp
 export LOG4CPP_FQ_DIR="/log4cpp_install"
