@@ -3,6 +3,7 @@
 
 #include "G4VUserDetectorConstruction.hh"
 #include "PrimaryGeneratorMessenger.hh"
+#include "VolumeChecker.hh"
 
 #include "G4LogicalVolumeStore.hh"
 #include "G4LogicalVolume.hh"
@@ -179,11 +180,23 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   }
   */
 
-  G4bool insomethinginteresting = ((vtxvol.find("0x"))!=std::string::npos);
-  if ( vtxvol == "TWATER_PV" || insomethinginteresting ) {
+  G4bool insomethinginteresting = false;
+  insomethinginteresting = (!insomethinginteresting) ? ((vtxvol.find("0x"        ))!=std::string::npos) : true;
+  insomethinginteresting = (!insomethinginteresting) ? ((vtxvol.find("WATER"     ))!=std::string::npos) : true;
+  insomethinginteresting = (!insomethinginteresting) ? ((vtxvol.find("OUTER"     ))!=std::string::npos) : true;
+  insomethinginteresting = (!insomethinginteresting) ? ((vtxvol.find("OUTERARGON"))!=std::string::npos) : true;
+  insomethinginteresting = (!insomethinginteresting) ? ((vtxvol.find("SCUBATANK" ))!=std::string::npos) : true;
+  insomethinginteresting = (!insomethinginteresting) ? ((vtxvol.find("INNERARGON"))!=std::string::npos) : true;
+  if( insomethinginteresting ) {
     intank = 1;
-    G4cout << "=========> particles start in " << vtxvol << " entry " 
+    G4cout << "=========> particles start in " << vtxvol << " (" << vtxmat << ") entry " 
            << fEntry << G4endl;
+  } else {
+    G4cout << "Event not in TWATER_PV\n"
+           << "Event in " << pvol->GetName() << "\n"
+           << "Skipping entry" << G4endl;
+           // << "Ending program" << G4endl;
+  return;
   }
   // other posssibilities ? ... tank wall, base, cone, airspace?
 

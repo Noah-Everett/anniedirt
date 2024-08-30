@@ -177,6 +177,8 @@ endforeach()
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(g4annie_dirt_flux g4annie_dirt_flux.cc ${sources} ${headers})
 target_link_libraries(g4annie_dirt_flux ${Genie_LIBRARIES} ${Geant4_LIBRARIES} ${Root_LIBRARIES} ${G4NU_LIBRARIES})
 

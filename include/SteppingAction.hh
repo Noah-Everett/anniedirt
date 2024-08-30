@@ -36,6 +36,7 @@
 #define SteppingAction_h 1
 
 #include "G4UserSteppingAction.hh"
+#include "G4LogicalVolume.hh"
 
 #include "G4ThreeVector.hh"
 
@@ -60,6 +61,8 @@ private:
   double distRayToPoint(const G4ThreeVector& rayOrigin,
                         const G4ThreeVector& rayDircos,
                         const G4ThreeVector& point);
+
+  G4LogicalVolume* TWATER_LV = nullptr;
 
   MyEventRecord*             fMyEventRecord; ///< not owned
 

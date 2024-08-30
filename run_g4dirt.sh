@@ -75,7 +75,7 @@ g4dirt file (out dir): ${OUTFILE}
 EOF
 
 # I know the `-i ./$basename ${INFILE})` looks really dumb, but its necessary... I learned the hard way
-/ANNIEDirt_install/bin/g4annie_dirt_flux --batch -n ${NEVENTS} -g ${GEOMETRY} --physics=${USEPHYLIST} -i ./$(basename ${INFILE}) -o $(basename ${OUTFILE}) 2>&1 | tee -a ${OUTFILELOG}
+/ANNIEDirt_build/g4annie_dirt_flux --batch -n ${NEVENTS} -g ${GEOMETRY} --physics=${USEPHYLIST} -i ./$(basename ${INFILE}) -o $(basename ${OUTFILE}) 2>&1 | tee -a ${OUTFILELOG}
 
 mv -f annie_tank_flux.* ${OUTDIR}
 rm -f currentEvent.rndm
