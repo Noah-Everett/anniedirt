@@ -1,7 +1,13 @@
 #! /usr/bin/env bash
 
 # misc
-export NCPU=${NCPU:-1}
+if ! command -v nproc &> /dev/null
+then
+    echo "nproc could not be found"
+    export NCPU=1
+else
+    export NCPU=$(nproc)
+fi
 
 # log4cpp
 export LOG4CPP_FQ_DIR="/log4cpp_install"
