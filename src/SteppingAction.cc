@@ -112,6 +112,7 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
       fMyEventRecord->AppendG4Step(aTrack,postStepPoint);
       aTrack->SetTrackStatus(fStopAndKill);
     }
+  }
 
   /*
   // get volume of the current step
