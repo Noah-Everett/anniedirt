@@ -3,7 +3,6 @@
 
 #include "G4VUserDetectorConstruction.hh"
 #include "PrimaryGeneratorMessenger.hh"
-#include "VolumeChecker.hh"
 
 #include "G4LogicalVolumeStore.hh"
 #include "G4LogicalVolume.hh"

@@ -44,7 +44,6 @@
 #include "G4Step.hh"
 
 #include "MyEventRecord.hh"
-#include "VolumeChecker.hh"
 
 #include <string>
 #include <queue>
@@ -100,15 +99,6 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
     // G4Material*       mat_end = lv_end->GetMaterial();
     // G4cout << "===== SA == " << lv_end->GetName() << G4endl;
    
-    // if (lv_end->GetName() == "TWATER_LV" || VolumeChecker::GetInstance("TWATER_LV", true).IsChild(lv_end->GetName())) {
-    //     G4cout << "===== SA == FOUND VOL ============" << G4endl;
-    //     std::cout << "Daughter volume 'currentVolume' found." << std::endl;
-	// // record this info and kill the particle
-    //     G4Track* aTrack = aStep->GetTrack();
-    //     fMyEventRecord->AppendG4Step(aTrack,postStepPoint);
-    //     aTrack->SetTrackStatus(fStopAndKill);
-    // }
-
     G4bool insomethinginteresting = false;
     insomethinginteresting = (!insomethinginteresting) ? ((vtxvol.find("0x"        ))!=std::string::npos) : true;
     insomethinginteresting = (!insomethinginteresting) ? ((vtxvol.find("WATER"     ))!=std::string::npos) : true;

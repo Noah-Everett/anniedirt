@@ -18,7 +18,6 @@
 #include "EventAction.hh"
 #include "SteppingAction.hh"
 #include "SteppingVerbose.hh"
-#include "VolumeChecker.hh"
 
 #include "MyEventRecord.hh"
 
@@ -292,8 +291,6 @@ int main(int argc,char** argv)
   delete runManager;
 
   delete myevtrec;
-
-  VolumeChecker::ClearAllInstances();
 
   return 0;
 }
