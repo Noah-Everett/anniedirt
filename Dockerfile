@@ -33,7 +33,11 @@ USER root
 #######################################
 ########## Build Environment ##########
 #######################################
-RUN dnf config-manager --set-enabled extras,powertools \
+RUN cd /etc/yum.repos.d/ \
+ && sed -i 's/mirrorlist/#mirrorlist/g'                                            /etc/yum.repos.d/CentOS-* \
+ && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* \
+ && cd - \
+ && dnf config-manager --set-enabled extras,powertools \
  && yum install -y gcc \
                    gcc-c++ \
                    gcc-gfortran \
