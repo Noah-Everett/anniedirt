@@ -51,6 +51,7 @@ RUN cd /etc/yum.repos.d/ \
                    quota \
                    patch \
                    libnsl2-devel \
+                   which \
  && yum clean all \
  && rm -rf /vr/cache/yum \
  && wget https://raw.githubusercontent.com/ANNIEsoft/anniedirt/genie_3_0_6/setup_Dockerfile.sh
