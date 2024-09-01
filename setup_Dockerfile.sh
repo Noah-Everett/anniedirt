@@ -27,6 +27,9 @@ export PATH="${PATH}:/ROOT_install/bin"
 
 # Geant4
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Geant4_install/lib64"
+if [ -f "/Geant4_install/bin/geant4.sh" ]; then
+    source "/Geant4_install/bin/geant4.sh"
+fi
 export Geant4_DIR="/Geant4_install/lib64/cmake/Geant4/"
 
 # GENIE
