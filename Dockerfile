@@ -183,7 +183,7 @@ RUN source /setup_Dockerfile.sh \
 ########## GENIE ##########
 ###########################
 RUN source /setup_Dockerfile.sh \
- && git clone --depth 1 https://github.com/ANNIEsoft/GENIE-v3 /GENIE \
+ && git clone --depth 1 https://github.com/Noah-Everett/GENIE_ANNIESoft /GENIE \
  && cd /GENIE \
  && ./configure --prefix=/GENIE_install \
                 --with-libxml2-inc=/usr/include/libxml2 \
