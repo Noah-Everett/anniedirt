@@ -37,7 +37,7 @@ RUN cd /etc/yum.repos.d/ \
  && sed -i 's/mirrorlist/#mirrorlist/g'                                            /etc/yum.repos.d/CentOS-* \
  && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* \
  && cd - \
- && yum install dnf-plugins-core \
+ && yum install -y dnf-plugins-core \
  && dnf config-manager --set-enabled extras,powertools \
  && yum install -y gcc \
                    gcc-c++ \
