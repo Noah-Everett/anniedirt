@@ -201,9 +201,9 @@ RUN source /setup_Dockerfile.sh \
 ###############################
 ########## ANNIEDirt ##########
 ###############################
-RUN wget https://raw.githubusercontent.com/ANNIEsoft/anniedirt/genie_3_0_6/setup_Dockerfile.sh \
+RUN wget https://raw.githubusercontent.com/Noah-Everett/anniedirt/genie_3_0_6/setup_Dockerfile.sh \
  && source /setup_Dockerfile.sh \
- && git clone --depth 1 https://github.com/ANNIEsoft/anniedirt /ANNIEDirt_src \
+ && git clone --depth 1 https://github.com/Noah-Everett/anniedirt /ANNIEDirt_src \
  && mkdir /ANNIEDirt_build \
  && mkdir /ANNIEDirt_install \
  && cd /ANNIEDirt_build \
