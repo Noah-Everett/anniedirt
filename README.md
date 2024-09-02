@@ -1,10 +1,8 @@
 # ANNIEDirt - Docker branch
 
-## About
 ANNIEDirt (g4annie_dirt_flux, g4dirt, g4annie, etc.), created by Robert Hatcher, is part of ANNIE's simulation chain. 
 It propagates final state particles from [GENIE](https://github.com/ANNIEsoft/GENIE-v3) through `/home/annie_v04.gdml` until they reach `TWATER_PV` (**T**ank **WATER** **P**hysical **V**olume) or another physical volume that contains `0x` (e.g. MRD and FMV components)
 This can drastically reduce run time when studing neutrino events outside the ANNIE tank.
-
 
 ## `/home/g4annie_dirt_flux` Usage
 ```
