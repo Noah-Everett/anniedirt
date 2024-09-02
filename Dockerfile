@@ -202,7 +202,7 @@ RUN source /setup_Dockerfile.sh \
 ########## ANNIEDirt ##########
 ###############################
 RUN source /setup_Dockerfile.sh \
- && git clone --depth 1 https://github.com/Noah-Everett/anniedirt /ANNIEDirt_src \
+ && git clone --depth 1 https://github.com/ANNIEsoft/anniedirt /ANNIEDirt_src \
  && mkdir /ANNIEDirt_build \
  && mkdir /ANNIEDirt_install \
  && cd /ANNIEDirt_build \
