@@ -48,6 +48,9 @@
 #include <string>
 #include <queue>
 
+using std::string;
+using std::queue;
+
 ////#include "G4RunManager.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
